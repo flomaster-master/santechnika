@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сантехник Алматы — выезд 30–60 минут</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f8fb;
+      color: #1b1b1b;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #0077ff;
+    }
+
+    .logo span {
+      color: #111;
+    }
+
+    .top-phone {
+      background: #0077ff;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 88vh;
+      padding: 70px 7%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      background:
+        linear-gradient(120deg, rgba(0,119,255,0.95), rgba(0,198,255,0.88)),
+        url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      max-width: 760px;
+    }
+
+    .hero h1 span {
+      color: #ffdf3b;
+    }
+
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .hero-badges div {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 17px 24px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: 900;
+      display: inline-block;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-yellow {
+      background: #ffdf3b;
+      color: #111;
+    }
+
+    .btn-green {
+      background: #25d366;
+      color: white;
+    }
+
+    .hero-card {
+      background: white;
+      color: #111;
+      padding: 34px;
+      border-radius: 26px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+    }
+
+    .hero-card h2 {
+      font-size: 30px;
+      color: #0077ff;
+      margin-bottom: 15px;
+    }
+
+    .price-box {
+      margin: 25px 0;
+      padding: 22px;
+      background: #f0f7ff;
+      border-radius: 18px;
+      border-left: 6px solid #0077ff;
+    }
+
+    .price-box small {
+      color: #555;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 42px;
+      font-weight: 900;
+      color: #111;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .check-list li {
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: #25d366;
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 42px;
+      color: #555;
+      font-size: 18px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service {
+      background: white;
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.25s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.13);
+    }
+
+    .icon {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .service h3 {
+      color: #0077ff;
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      color: #555;
+    }
+
+    .dark {
+      background: #0d1726;
+      color: white;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.08);
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .step strong {
+      font-size: 34px;
+      color: #ffdf3b;
+    }
+
+    .step h3 {
+      margin: 12px 0;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .review {
+      background: white;
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .stars {
+      color: #ffb800;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .review b {
+      display: block;
+      margin-top: 15px;
+      color: #0077ff;
+    }
+
+    .final-cta {
+      background: linear-gradient(120deg, #0077ff, #00c6ff);
+      color: white;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .final-cta p {
+      font-size: 21px;
+      margin-bottom: 28px;
+    }
+
+    footer {
+      background: #07111f;
+      color: white;
+      text-align: center;
+      padding: 28px 7%;
+    }
+
+    .float-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: #25d366;
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 200;
+    }
+
+    @media (max-width: 950px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 50px 5%;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .services,
+      .steps,
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+      .final-cta h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Santeh<span>Almaty</span></div>
+  <a class="top-phone" href="tel:+77773285100">+7 777 328 51 00</a>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Сантехник в Алматы <span>с выездом за 30–60 минут</span></h1>
+    <p>
+      Срочный вызов сантехника на дом, в офис или коммерческий объект.
+      Устраним протечки, засоры, заменим трубы, смесители, унитазы и подключим сантехнику.
+    </p>
+
+    <div class="hero-badges">
+      <div>Выезд от 5000 ₸</div>
+      <div>Работаем по Алматы</div>
+      <div>Честные цены</div>
+      <div>Без лишних накруток</div>
+    </div>
+
+    <div class="buttons">
+      <a class="btn btn-yellow" href="tel:+77773285100">Позвонить мастеру</a>
+      <a class="btn btn-green" href="https://wa.me/77773285100" target="_blank">Написать в WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h2>Аварийный вызов сантехника</h2>
+    <p>Мастер приедет, осмотрит проблему и заранее согласует стоимость работы.</p>
+
+    <div class="price-box">
+      <small>Стоимость выезда</small>
+      <div class="price">5000 ₸</div>
+    </div>
+
+    <ul class="check-list">
+      <li>Быстрый приезд по городу</li>
+      <li>Аккуратная работа</li>
+      <li>Опытные мастера</li>
+      <li>Можно вызвать через WhatsApp</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 class="title">Какие работы выполняем</h2>
+  <p class="subtitle">
+    Поможем с мелким ремонтом, срочной аварией и полноценной сантехникой под ключ.
+  </p>
+
+  <div class="services">
+    <div class="service">
+      <div class="icon">🚰</div>
+      <h3>Протечки и краны</h3>
+      <p>Устраняем течь, меняем краны, смесители, гибкую подводку, сифоны и соединения.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🧰</div>
+      <h3>Прочистка засоров</h3>
+      <p>Раковина, ванна, унитаз, душевая, кухня, канализация — быстро и аккуратно.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🚽</div>
+      <h3>Установка унитаза</h3>
+      <p>Монтаж, демонтаж, подключение, замена бачка, арматуры и гофры.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🔧</div>
+      <h3>Замена труб</h3>
+      <p>Водопровод, канализация, отопление, разводка труб в квартире или доме.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🛁</div>
+      <h3>Ванная и кухня</h3>
+      <p>Подключение раковины, ванны, душевой, мойки, стиральной и посудомоечной машины.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🏢</div>
+      <h3>Объекты и офисы</h3>
+      <p>Работаем с квартирами, частными домами, офисами, магазинами и коммерческими объектами.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <h2 class="title">Как мы работаем</h2>
+  <p class="subtitle" style="color:#cbd5e1;">
+    Всё просто: звонок, выезд, осмотр, согласование и выполнение работы.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <strong>01</strong>
+      <h3>Вы звоните</h3>
+      <p>Или пишете нам в WhatsApp.</p>
+    </div>
+
+    <div class="step">
+      <strong>02</strong>
+      <h3>Мастер выезжает</h3>
+      <p>Обычно приезд занимает 30–60 минут.</p>
+    </div>
+
+    <div class="step">
+      <strong>03</strong>
+      <h3>Осмотр</h3>
+      <p>Проверяем проблему и называем стоимость.</p>
+    </div>
+
+    <div class="step">
+      <strong>04</strong>
+      <h3>Ремонт</h3>
+      <p>Выполняем работу аккуратно и надёжно.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="title">Отзывы клиентов</h2>
+  <p class="subtitle">Примеры отзывов для сайта. Потом можно заменить на реальные.</p>
+
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Была сильная протечка под раковиной. Мастер приехал быстро, всё сделал аккуратно.</p>
+      <b>Айдос, Алматы</b>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Заменили смеситель и сифон. Цена была заранее согласована, лишнего не накручивали.</p>
+      <b>Марина, Алматы</b>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>Вызывали на засор кухни. Приехали быстро, проблему решили в тот же день.</p>
+      <b>Руслан, Алматы</b>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2>Нужен сантехник прямо сейчас?</h2>
+  <p>Позвоните или напишите в WhatsApp. Работаем по Алматы.</p>
+
+  <div class="buttons" style="justify-content:center;">
+    <a class="btn btn-yellow" href="tel:+77773285100">Позвонить: +7 777 328 51 00</a>
+    <a class="btn btn-green" href="https://wa.me/77773285100" target="_blank">WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <p><b>SantehAlmaty</b> — сантехнические услуги в Алматы</p>
+  <p>Телефон: +7 777 328 51 00</p>
+  <p>Выезд от 5000 ₸ · Быстрый приезд 30–60 минут</p>
+</footer>
+
+<a class="float-whatsapp" href="https://wa.me/77773285100" target="_blank">
+  WhatsApp
+</a>
+
+</body>
+</html>
